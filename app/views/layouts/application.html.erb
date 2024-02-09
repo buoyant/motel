@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Motel</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <%= link_to 'Home', root_path %>
+        <%#= link_to 'Events', events_path %>
+        <%#= link_to 'Emails', emails_path %>
+      </nav>
+    </header>
+
+    <main>
+      <div>
+        <% if current_user %>
+          <span style="float: left">Hello <%= link_to current_user.email, 'users/edit' %></span>
+          <%= button_to '<i class="gg-log-off"></i>'.html_safe, destroy_user_session_path, :method => :delete, :title => "Logout #{current_user.email}", :style => 'float: right' %>
+        <% end %>
+      </div>
+
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% else %>
+        <p class="empty-space"></p>
+      <% end %>
+
+      <%= yield %>
+    </main>
+  </body>
+</html>

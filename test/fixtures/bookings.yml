@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hotel: one
+  user: one
+  checkin_date: 2024-02-09
+  checkout_date: 2024-02-09
+  rooms: 1
+  memebers: 1
+  canceled: false
+
+two:
+  hotel: two
+  user: two
+  checkin_date: 2024-02-09
+  checkout_date: 2024-02-09
+  rooms: 1
+  memebers: 1
+  canceled: false
