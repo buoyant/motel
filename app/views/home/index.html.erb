@@ -1,2 +1,21 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Book a Hotel</h1>
+
+<!-- TODO: Add filters here -->
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>location</th>
+    <th>Book</th>
+  </thead>
+  <tbody>
+    <% @available_hotels.each do |hotel| %>
+      <tr>
+        <td><%= hotel.name %></td>
+        <td><%= hotel.location %></td>
+        <td><%= link_to 'Book', book_hotel_path(hotel) %></td>
+      </tr>
+    <% end %>    
+  </tbody>
+</table>
+

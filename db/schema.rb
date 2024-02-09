@@ -28,8 +28,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_09_105401) do
   create_table "hotels", force: :cascade do |t|
     t.string "name"
     t.string "location"
-    t.integer "total_rooms"
-    t.integer "booked_rooms"
+    t.integer "total_rooms", default: 0
+    t.integer "booked_rooms", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

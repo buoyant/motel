@@ -1,0 +1,18 @@
+<h1>Modify a Booking</h1>
+
+<%= form_with(model: @booking, url: update_booking_path(@booking)) do |form| %>
+  
+  <%= form.label :checkin_date, "checkin Date:" %>
+  <%= form.date_field :checkin_date %>
+
+  <%= form.label :checkout_date, "checkout Date:" %>
+  <%= form.date_field :checkout_date %>
+
+  <%= form.label :rooms, "Rooms:" %>
+  <%= form.select :rooms, (1..@booking.hotel.available_rooms) %>
+
+  <%= form.label :members, "Members:" %>
+  <%= form.select :members, (1..10) %>
+  <br />
+  <%= form.submit "Update Booking" %>
+<% end %>

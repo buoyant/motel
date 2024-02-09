@@ -8,6 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+User.create!(email: 'user1@example.com', password: '123456')
+
 10.times do 
   Hotel.create!(name: Faker::Company.name, location: Faker::Address.city, total_rooms: 10)
 end

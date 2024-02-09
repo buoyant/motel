@@ -10,4 +10,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+
+  get '/book_hotel/:id', to: 'home#book_hotel', as: 'book_hotel'
+  
+  get '/bookings', to: 'home#bookings', as: 'bookings'
+  post '/create_booking', to: 'home#create_booking', as: 'create_booking'
+  get '/modify_booking/:id', to: 'home#modify_booking', as: 'modify_booking'
+  patch '/update_booking/:id', to: 'home#update_booking', as: 'update_booking'
+  post '/cancel_booking/:id', to: 'home#cancel_booking', as: 'cancel_booking'
 end

@@ -1,0 +1,35 @@
+<h1>My Bookings</h1>
+
+<table id="hotels">
+  <thead>
+    <th>Hotel Name</th>
+    <th>Hotel Location</th>
+    <th>Rooms</th>
+    <th>Members</th>
+    <th>Checkin Date</th>
+    <th>Checkout Date</th>
+    <th>modify</th>
+    <th>Cancel</th>
+  </thead>
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr id="<%= dom_id booking %>">
+        <td><%= booking.hotel.name %></td>
+        <td><%= booking.hotel.location %></td>
+        <td><%= booking.rooms %></td>
+        <td><%= booking.members %></td>
+        <td><%= booking.checkin_date %></td>
+        <td><%= booking.checkout_date %></td>
+        <td><%= link_to_if !booking.canceled?, 'Modify', modify_booking_path(booking) %></td>
+        <td>
+          <% if booking.canceled? %>
+            Already canceled
+          <% else %>
+            <%= button_to "Cancel this booking", cancel_booking_path(booking), method: :post %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -2,13 +2,25 @@
 
 <h1>Hotels</h1>
 
-<div id="hotels">
-  <% @hotels.each do |hotel| %>
-    <%= render hotel %>
-    <p>
-      <%= link_to "Show this hotel", hotel %>
-    </p>
-  <% end %>
-</div>
+<table id="hotels">
+  <thead>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Total rooms</th>
+    <th>Booked rooms</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @hotels.each do |hotel| %>
+      <tr id="<%= dom_id hotel %>">
+        <td><%= hotel.name %></td>
+        <td><%= hotel.location %></td>
+        <td><%= hotel.total_rooms %></td>
+        <td><%= hotel.booked_rooms %></td>
+        <td><%= link_to "Show this hotel", hotel %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to "New hotel", new_hotel_path %>
